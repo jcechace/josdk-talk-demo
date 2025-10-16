@@ -1,0 +1,7 @@
+services:
+  caddy:
+    image: caddy:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./site:/usr/share/caddy
