@@ -6,6 +6,7 @@ import io.javaoperatorsdk.operator.processing.dependent.workflow.Condition;
 import net.cechacek.demo.operator.model.Website;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static net.cechacek.demo.operator.ResourceUtils.isValidHtml;
 
@@ -22,7 +23,11 @@ public class HtmlValidCondition  implements Condition<Void, Website> {
             }
         });
 
-        if (!pages.containsKey("index.html") || !invalid.isEmpty()) {
+        if (!pages.containsKey("index.html")) {
+            throw new InvalidHtmlException(List.of("index.html"));
+        }
+
+        if (!invalid.isEmpty()) {
             throw new InvalidHtmlException(invalid);
         }
 
