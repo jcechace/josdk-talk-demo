@@ -22,7 +22,7 @@ public class HtmlValidCondition  implements Condition<Void, Website> {
             }
         });
 
-        if (!invalid.isEmpty()) {
+        if (!pages.containsKey("index.html") || !invalid.isEmpty()) {
             throw new InvalidHtmlException(invalid);
         }
 
