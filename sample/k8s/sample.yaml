@@ -2,7 +2,6 @@ apiVersion: demo.cechacek.net/v1alpha1
 kind: Website
 metadata:
   name: sample
-  namespace: site
 spec:
   html:
     pages:
